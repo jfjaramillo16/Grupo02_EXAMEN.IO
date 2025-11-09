@@ -122,6 +122,7 @@
                         </li>
                     </ul>
                 </nav>
+
 <!-- ===== CONTENIDO PRINCIPAL ===== -->
 <div class="container-fluid">
   <h1 class="h3 mb-4 text-center text-uppercase">Slider - Grupo 02</h1>
@@ -492,47 +493,13 @@
 <!-- ===== SCRIPTS ===== -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Si usas SB Admin 2, mantenlo después de jQuery/Bootstrap -->
 <script src="../../js/sb-admin-2.min.js"></script>
 
 <!-- Tu JS (si lo necesitas) -->
 <script src="js/main.js"></script>
+</body>
 
-<script>
-  $(function () {
-    // Botón EJECUTAR: mostrar/ocultar el resultado (sin conflictos)
-    $(document).on('click', '.content-card .btn.btn-primary', function () {
-      const $card = $(this).closest('.content-card');
-      const $res  = $card.find('.resultado').first();
-
-      // Si esta tarjeta contiene el slider del Ejercicio 4, inicialízalo SOLO una vez
-      if ($res.find('#sliderFade').length && !$res.data('fade-init')) {
-        const $imgs = $res.find('#sliderFade .fade-img');
-        if ($imgs.length) {
-          $imgs.not(':first').hide();
-          let i = 0;
-          setInterval(function () {
-            $imgs.eq(i).fadeOut(1000);
-            i = (i + 1) % $imgs.length;
-            $imgs.eq(i).fadeIn(1000);
-          }, 3000);
-          $res.data('fade-init', true);
-        }
-      }
-
-      $res.toggleClass('d-none');
-    });
-
-    // Inicializa el carrusel de la Parte 3 si existe (Bootstrap 5 API)
-    const slider = document.querySelector('#miSlider');
-    if (slider && window.bootstrap && bootstrap.Carousel) {
-      new bootstrap.Carousel(slider, {
-        interval: 3500,
-        pause: 'hover',
-        touch: true,
-        wrap: true
-      });
-    }
-  });
-</script>
+</html>
